@@ -5,7 +5,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>org.dragon.yunpeng</groupId>
-	<artifactId>SpringBoot_EssayLibrary</artifactId>
+	<artifactId>SpringBoot_Primefaces_EssayLibrary</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 
