@@ -1,1 +1,3 @@
-http://localhost:7777/SpringBoot_Primefaces_EssayLibrary/hello.xhtml
+http://localhost:7777/SpringBoot_Primefaces_EssayLibrary/index.xhtml
+
+http://localhost:7777/SpringBoot_Primefaces_EssayLibrary/pages/homePage.xhtml

@@ -33,4 +33,9 @@ build/
 .vscode/
 
 
+*settings
+.project
+.classpath
 *.jar
+swap_*
+*.log

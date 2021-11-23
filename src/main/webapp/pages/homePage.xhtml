@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+	
+<h:head>
+	<h:outputStylesheet library="primefaces-#{themeSwitcherBean.theme}" name="theme.css" />
+</h:head>
+<h:body>
+	<center>
+		<span><h1>Spring Boot + JSF 2.2 + JPA + PrimeFaces + Spring Security + Reports</h1></span>
+		<br/>
+		<span><h2>Hello, <h:outputText value="#{userInformationBean.currentPrincipalName}" />!</h2></span>
+		<br/>
+		<span>Active Profiles: <h:outputText value="#{activeProfileBean.activeProfiles}" /> </span>
+		<br/>
+		<br/>
+		<br/>
+		<h:outputLink value="#{request.contextPath}/pages/logout">Logout</h:outputLink>
+		<br/><br/><br/>
+		<table>
+			<tr>
+				<td>
+					<h:outputLink value="#{request.contextPath}/pages/admin/searchEssay.xhtml" >Search Essays by Criteria (Only for Admin Users)</h:outputLink>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<h:outputLink value="#{request.contextPath}/pages/admin/fullTextSearchEssay.xhtml" >Search Essays through Index (Only for Admin Users)</h:outputLink>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<h:outputLink value="#{request.contextPath}/pages/admin/essayInForm.xhtml" >Create and Edit Essay in a Form (Only for Admin Users)</h:outputLink>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<h:outputLink value="#{request.contextPath}/pages/admin/essay.xhtml" >Create and Edit Essay in a Dialog (Only for Admin Users)</h:outputLink>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<h:outputLink value="#{request.contextPath}/pages/admin/essayViewScope.xhtml" >Create and Edit Essay in a Form (Only for Admin Users and ViewScoped)</h:outputLink>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<h:outputLink value="#{request.contextPath}/pages/superUser/essay2.xhtml" >View Essays (For Super Users)</h:outputLink>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<h:outputLink value="#{request.contextPath}/pages/public/introduction.xhtml" >Introduction (For Everyone)</h:outputLink>
+				</td>
+			</tr>
+		</table>
+	</center>
+</h:body>
+</html>

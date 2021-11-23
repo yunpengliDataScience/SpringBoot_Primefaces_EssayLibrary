@@ -1,4 +1,4 @@
-package org.dragon.yunpeng;
+package com.library.essay;
 
 import java.util.Arrays;
 
@@ -7,8 +7,12 @@ import javax.servlet.ServletContext;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
+
+//import com.library.essay.MyServletContextInitializer;
+
 
 @SpringBootApplication
 public class SpringBootPrimefacesEssayLibraryApplication {
@@ -16,6 +20,12 @@ public class SpringBootPrimefacesEssayLibraryApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SpringBootPrimefacesEssayLibraryApplication.class, args);
 	}
+	
+//	@Override
+//	protected SpringApplicationBuilder configure(SpringBootPrimefacesEssayLibraryApplication application) {
+//		return application
+//				.sources(new Class[] { SpringBootPrimefacesEssayLibraryApplication.class, MyServletContextInitializer.class });
+//	}
 
 	@Bean
 	ServletRegistrationBean jsfServletRegistration(ServletContext servletContext) {
