@@ -39,3 +39,4 @@ build/
 *.jar
 swap_*
 *.log
+*docs/*

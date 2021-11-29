@@ -9,10 +9,8 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
-//@Profile("mem-security") TODO
-//@Configuration TODO
-//@EnableWebSecurity  //TODO
-//@Order(SecurityProperties.ACCESS_OVERRIDE_ORDER)  TODO
+@Profile("mem-security")
+@Configuration
 public class MemSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	//1. Configure HTTP URL pattern mappings.
@@ -38,6 +36,9 @@ public class MemSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	public void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.inMemoryAuthentication()
-			.withUser("mem").password("mem").roles("ADMIN", "SUPER", "USER");
+			.withUser("mem").password("{noop}mem").roles("ADMIN", "SUPER", "USER");
+		
+		auth.inMemoryAuthentication()
+			.withUser("mem2").password("{noop}mem2").roles("SUPER");
 	}
 }
