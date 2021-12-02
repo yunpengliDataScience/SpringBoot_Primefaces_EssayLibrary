@@ -1,18 +1,15 @@
 package com.library.essay.configurations;
 
-import org.springframework.boot.autoconfigure.security.SecurityProperties;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
-import org.springframework.core.annotation.Order;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
-//@Profile("ldap-security") TODO
-//@Configuration TODO
-//@EnableWebSecurity TODO
-//@Order(SecurityProperties.ACCESS_OVERRIDE_ORDER)  TODO
+@Profile("ldap-security")
+@Configuration
+@EnableWebSecurity
 public class LDAPSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	//1. Configure HTTP URL pattern mappings.
@@ -30,7 +27,7 @@ public class LDAPSecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf().disable()
                 .logout()
                 	.logoutUrl("/pages/logout")
-                	.logoutSuccessUrl("/pages/public/loginPage.xhtml")
+                	.logoutSuccessUrl("/pages/homePage.xhtml")
                 	.invalidateHttpSession(true);
 	}
 

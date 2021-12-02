@@ -2,11 +2,9 @@ package com.library.essay.configurations;
 
 import java.util.Collection;
 
-import org.springframework.boot.autoconfigure.security.SecurityProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
-import org.springframework.core.annotation.Order;
 import org.springframework.ldap.core.DirContextAdapter;
 import org.springframework.ldap.core.DirContextOperations;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -22,10 +20,9 @@ import org.springframework.security.ldap.userdetails.UserDetailsContextMapper;
 
 import com.library.essay.security.beans.ActiveDirectoryUserDetails;
 
-//@Profile("activeDirectory-security") TODO
-//@Configuration TODO
-//@EnableWebSecurity TODO
-//@Order(SecurityProperties.ACCESS_OVERRIDE_ORDER)  TODO
+@Profile("activeDirectory-security")
+@Configuration
+@EnableWebSecurity
 public class ActiveDirectorySecurityConfig extends WebSecurityConfigurerAdapter {
 
   // 1. Configure HTTP URL pattern mappings.
@@ -35,9 +32,15 @@ public class ActiveDirectorySecurityConfig extends WebSecurityConfigurerAdapter 
         .antMatchers("/javax.faces.resource/**", "/pages/public/**", "/pages/logout").permitAll()
         // .antMatchers("/pages/admin/**").hasAuthority("ROLE_ADMIN")
         // .antMatchers("/pages/superUser/**").hasAuthority("ROLE_SUPER")
-        .anyRequest().authenticated().and().formLogin().loginPage("/pages/public/loginPage.xhtml")
-        .and().csrf().disable().logout().logoutUrl("/pages/logout")
-        .logoutSuccessUrl("/pages/public/loginPage.xhtml").invalidateHttpSession(true);
+        .anyRequest().authenticated()
+        .and()
+        .formLogin().loginPage("/pages/public/loginPage.xhtml")
+        .and()
+        .csrf().disable()
+        .logout()
+        	.logoutUrl("/pages/logout")
+        	.logoutSuccessUrl("/pages/homePage.xhtml")
+        	.invalidateHttpSession(true);
   }
 
   @Bean

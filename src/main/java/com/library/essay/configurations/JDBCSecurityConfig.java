@@ -12,10 +12,9 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
-//@Profile("jdbc-security") TODO
-//@Configuration TODO
-//@EnableWebSecurity TODO
-//@Order(SecurityProperties.ACCESS_OVERRIDE_ORDER) TODO
+@Profile("jdbc-security")
+@Configuration
+@EnableWebSecurity
 public class JDBCSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Autowired
@@ -36,7 +35,7 @@ public class JDBCSecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf().disable()
                 .logout()
                 	.logoutUrl("/pages/logout")
-                	.logoutSuccessUrl("/pages/public/loginPage.xhtml")
+                	.logoutSuccessUrl("/pages/homePage.xhtml")
                 	.invalidateHttpSession(true);
 	}
 

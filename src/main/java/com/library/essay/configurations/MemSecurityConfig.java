@@ -1,9 +1,7 @@
 package com.library.essay.configurations;
 
-import org.springframework.boot.autoconfigure.security.SecurityProperties;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
-import org.springframework.core.annotation.Order;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -11,6 +9,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 
 @Profile("mem-security")
 @Configuration
+@EnableWebSecurity
 public class MemSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	//1. Configure HTTP URL pattern mappings.
@@ -28,7 +27,7 @@ public class MemSecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf().disable()
                 .logout()
                 	.logoutUrl("/pages/logout")
-                	.logoutSuccessUrl("/pages/public/loginPage.xhtml")
+                	.logoutSuccessUrl("/pages/homePage.xhtml")
                 	.invalidateHttpSession(true);
 	}
 

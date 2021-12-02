@@ -2,20 +2,17 @@ package com.library.essay.configurations;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.boot.autoconfigure.security.SecurityProperties;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
-import org.springframework.core.annotation.Order;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
-//@Profile("uds-security") TODO
-//@Configuration TODO
-//@EnableWebSecurity TODO
-//@Order(SecurityProperties.ACCESS_OVERRIDE_ORDER) TODO
+@Profile("uds-security")
+@Configuration
+@EnableWebSecurity
 public class UDSSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Autowired
@@ -37,7 +34,7 @@ public class UDSSecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf().disable()
                 .logout()
                 	.logoutUrl("/pages/logout")
-                	.logoutSuccessUrl("/pages/public/loginPage.xhtml")
+                	.logoutSuccessUrl("/pages/homePage.xhtml")
                 	.invalidateHttpSession(true);
 	}
 
