@@ -8,8 +8,7 @@
 	xmlns:myEditor="http://java.sun.com/jsf/composite/components">
 <h:head>
 	<h:outputStylesheet library="css" name="table-style.css" />
-	<h:outputStylesheet library="primefaces-#{themeSwitcherBean.theme}"
-		name="theme.css" />
+	
 	<myEditor:loadMyTinyMCE />
 </h:head>
 
@@ -22,22 +21,7 @@
 		<h:outputLink value="#{request.contextPath}/pages/logout">Logout</h:outputLink>
 		<br /> <br /> <br />
 
-		<p:outputLabel value="My Preferred Theme" />
-
-		<br /> <br /> <br />
-		<h:form id="form-theme">
-			<p:themeSwitcher id="defaultSwitcher"
-				value="#{themeSwitcherBean.theme}">
-
-				<f:selectItem itemLabel="Choose Theme" itemValue="" />
-				<f:selectItems value="#{themeSwitcherBean.themes}" />
-				<p:ajax listener="#{themeSwitcherBean.saveTheme}" />
-
-			</p:themeSwitcher>
-
-			<p:separator />
-		</h:form>
-
+		
 		<h:form id="reports">
 			<h1>Summary Reports</h1>
 			<br></br>
@@ -56,24 +40,28 @@
 		<h1>Essay Data Table (View and Edit Essays)</h1>
 		<h:form id="essayList">
 
-			<p:dataTable value="#{essayBean.getEssays()}" var="essay">
+			<p:dataTable value="#{essayBean.getEssays()}" var="essay" allowUnsorting="true" sortMode="single">
 				<f:facet name="header">
 			        Essay Data Table
 				</f:facet>
 
-				<p:column headerText="Essay ID">
+				<p:column headerText="Essay ID" sortBy="#{essay.id}" sortOrder="asc">
 					<h:commandLink action="#{essayBean.showEssayAdmin()}"
 						value="#{essay.id}">
 						<f:param name="essayId" value="#{essay.id}" />
 					</h:commandLink>
 				</p:column>
 
-				<p:column headerText="Title">
+				<p:column headerText="Title" sortBy="#{essay.title}">
 					<h:outputText value="#{essay.title}" />
 				</p:column>
 
 				<p:column headerText="Author">
 					<h:outputText value="#{essay.author}" />
+				</p:column>
+				
+				<p:column headerText="Content">
+					<h:outputText value="#{essay.content}" />
 				</p:column>
 			</p:dataTable>
 

@@ -8,8 +8,7 @@
 	xmlns:myEditor="http://java.sun.com/jsf/composite/components">
 <h:head>
 	<h:outputStylesheet library="css" name="table-style.css" />
-	<h:outputStylesheet library="primefaces-#{themeSwitcherBean.theme}"
-		name="theme.css" />
+	
 	<myEditor:loadMyTinyMCE />
 </h:head>
 
@@ -22,22 +21,7 @@
 		<h:outputLink value="#{request.contextPath}/pages/logout">Logout</h:outputLink>
 		<br /> <br /> <br />
 
-		<p:outputLabel value="My Preferred Theme" />
-
-		<br /> <br /> <br />
-		<h:form id="form-theme">
-			<p:themeSwitcher id="defaultSwitcher"
-				value="#{themeSwitcherBean.theme}">
-
-				<f:selectItem itemLabel="Choose Theme" itemValue="" />
-				<f:selectItems value="#{themeSwitcherBean.themes}" />
-				<p:ajax listener="#{themeSwitcherBean.saveTheme}" />
-
-			</p:themeSwitcher>
-
-			<p:separator />
-		</h:form>
-
+		
 		<h:form id="reports">
 			<h1>Summary Reports</h1>
 			<br></br>
